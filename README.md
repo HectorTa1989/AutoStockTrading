@@ -67,8 +67,11 @@ Here pyotp can generate OTP using the secret code for your app. To use this feat
 
 `
 import pyotp
+
 import robin_stocks as r
+
 totp  = pyotp.TOTP("My2factorAppHere").now()
+
 login = r.login('username','passowrd', mfa_code=totp)
 `
 
