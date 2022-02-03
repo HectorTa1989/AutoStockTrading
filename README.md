@@ -65,15 +65,10 @@ login = r.login('username@test.com','password')
 2. MFA login with pyotp
 Here pyotp can generate OTP using the secret code for your app. To use this feature, you will have to sign in to your Robinhood account and turn on two-factor authentication. Robinhood will ask you which two-factor authorization app you want to use. Select “other” Robinhood will present you with an alphanumeric code. This code is what you will use for “My2factorAppHere” in the code below. Run the following code and put the resulting MFA code into the prompt on your Robinhood app.
 
-`
-import pyotp
-
+`import pyotp
 import robin_stocks as r
-
 totp  = pyotp.TOTP("My2factorAppHere").now()
-
-login = r.login('username','passowrd', mfa_code=totp)
-`
+login = r.login('username','passowrd', mfa_code=totp)`
 
 3. 2FA login on the server without pyotp
 If you do not want to change or create other code from 2FA, you can log in manually using option 1 in the system you will use. For the first time, you can enter the OTP. The session will be saved temporarily. Until it the session ends, you can use with adding the OTP.
